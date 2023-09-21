@@ -13,25 +13,46 @@ npx cap sync
 
 <docgen-index>
 
-* [`echo(...)`](#echo)
+* [`addListener('homePress', ...)`](#addlistenerhomepress)
+* [Interfaces](#interfaces)
 
 </docgen-index>
 
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
 
-### echo(...)
+### addListener('homePress', ...)
 
 ```typescript
-echo(options: { value: string; }) => Promise<{ value: string; }>
+addListener(eventName: 'homePress', listenerFunc: (result: CapHomeButtonResult) => void) => Promise<PluginListenerHandle> & PluginListenerHandle
 ```
 
-| Param         | Type                            |
-| ------------- | ------------------------------- |
-| **`options`** | <code>{ value: string; }</code> |
+Listens to button presses.
 
-**Returns:** <code>Promise&lt;{ value: string; }&gt;</code>
+| Param              | Type                                                                                     | Description                                                                                                           |
+| ------------------ | ---------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| **`eventName`**    | <code>'homePress'</code>                                                                 | only homePress is supported                                                                                           |
+| **`listenerFunc`** | <code>(result: <a href="#caphomebuttonresult">CapHomeButtonResult</a>) =&gt; void</code> | called on button press with a reason. Reason can be 'homekey', 'recentapps', 'dream', 'voiceinteraction', or similar. |
+
+**Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
 --------------------
+
+
+### Interfaces
+
+
+#### PluginListenerHandle
+
+| Prop         | Type                                      |
+| ------------ | ----------------------------------------- |
+| **`remove`** | <code>() =&gt; Promise&lt;void&gt;</code> |
+
+
+#### CapHomeButtonResult
+
+| Prop         | Type                |
+| ------------ | ------------------- |
+| **`reason`** | <code>string</code> |
 
 </docgen-api>

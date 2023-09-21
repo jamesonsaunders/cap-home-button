@@ -1,6 +1,6 @@
 {
   "name": "cap-home-button",
-  "version": "0.0.1",
+  "version": "0.0.9",
   "description": "A capacitor plugin with a listener for when the home button is pressed.",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
